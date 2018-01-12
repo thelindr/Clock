@@ -14,9 +14,6 @@ class Clock extends React.Component {
       () => this.tick(),
       1000
     )
-    if (this.state.date > 12) {
-      document.getElementById("contentBox").style.background = "blue"
-    }
   }
 
   componentWillUnmount() {
@@ -40,9 +37,25 @@ class Clock extends React.Component {
     )
   }
 
+  checkIfEvening = () => {
+    if (this.state.date > 12) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  setClassName = () => {
+    if (this.checkIfEvening()) {
+      return "evening"
+    } else {
+      return "noon"
+    }
+  }
+
   render() {
     return (
-      <div id="contentBox" className="contentBox">
+      <div id="contentBox" className={this.setClassName()}>
         <h1>What Time is It?</h1>
         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
         <div className="buttonBox">
