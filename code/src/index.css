@@ -3,7 +3,7 @@
     -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
   }
   70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      -webkit-box-shadow: 0 0 0 30px rgba(204,169,44, 0);
   }
   100% {
       -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
@@ -15,8 +15,8 @@
     box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
   }
   70% {
-      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      -moz-box-shadow: 0 0 0 30px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 30px rgba(204,169,44, 0);
   }
   100% {
       -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
@@ -26,16 +26,28 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #f9f8ff3b;
   font-family: Helvetica;
+  letter-spacing: 1px;
+}
+
+.clock {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   color: #ffffff;
+  font-weight: 300;
 }
 
 #contentBox {
-  width: 400px;
-  height: 400px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
   margin: auto;
   margin-top: 30px;
   display: flex;
@@ -43,26 +55,27 @@ h1 {
   align-items: center;
   justify-content: space-around;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-color: black;
   border-radius: 50%;
-  padding: 20px;
-  box-shadow: 2px 3px 4px rgba(0,0,0,.5);
+  border-style: solid;
+  border-color: white;
+  padding: 60px 20px 60px 20px;
+}
+
+.even {
+  border-style: dotted;
+  border-color: pink;
   animation: pulse 2s;
-  animation-iteration-count: infinite;
 }
 
-.noon {
-  background-image: url(https://moodmoods.files.wordpress.com/2015/02/image2.jpg?w=730&h=667);
-}
-
-.evening {
-  background-image: url(http://images.artistrunwebsite.com/titlepage/tp_17791500378443_large.jpeg?1500378451);
+.even h2 {
+  color: #ff8600;
 }
 
 h2 {
   color: #ffffff;
   padding: 30px;
-  font-weight: lighter;
+  font-weight: 100;
 }
 
 .buttonBox {
@@ -71,7 +84,7 @@ h2 {
 }
 
 button {
-  background-color: #ffffff;
+  background-color: #ffc518;
   border-radius: 10px;
   border: none;
   color: black;
@@ -86,22 +99,4 @@ button:hover {
   background-color: #df976f;
   cursor: pointer;
   color: white;
-  animation: bounce 1s;
-}
-
-@keyframes bounce {
-	0%, 20%, 60%, 100% {
-		-webkit-transform: translateY(0);
-		transform: translateY(0);
-	}
-
-	40% {
-		-webkit-transform: translateY(-20px);
-		transform: translateY(-20px);
-	}
-
-	80% {
-		-webkit-transform: translateY(-10px);
-		transform: translateY(-10px);
-	}
 }

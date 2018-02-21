@@ -26,7 +26,7 @@ class Clock extends React.Component {
     })
   }
 
-  handleClick = () => {
+  handlePauseClick = () => {
     clearInterval(this.timerID) // Makes ticking stop
   }
 
@@ -37,8 +37,8 @@ class Clock extends React.Component {
     )
   }
 
-  checkIfEvening = () => {
-    if (this.state.date > 12) {
+  checkIfEven = () => {
+    if (this.state.date.getSeconds() % 2 === 0) { // if seconds is an even number
       return true
     } else {
       return false
@@ -46,24 +46,28 @@ class Clock extends React.Component {
   }
 
   setClassName = () => {
-    if (this.checkIfEvening()) {
-      return "evening"
+    if (this.checkIfEven()) {
+      return "even"
     } else {
-      return "noon"
+      return "odd"
     }
   }
 
   render() {
     return (
-      <div id="contentBox" className={this.setClassName()}>
-        <h1>What Time is It?</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      <div className="clock">
+        <div id="contentBox" className={this.setClassName()}>
+          <h1>{this.state.date.getDate()}/{this.state.date.getMonth() + 1}
+            {' '}{this.state.date.getFullYear()}
+          </h1>
+          <h2>{this.state.date.toLocaleTimeString()}.</h2>
+        </div>
         <div className="buttonBox">
-          <button onClick={this.handleClick}>
-          Timeout
+          <button onClick={this.handlePauseClick}>
+        Timeout
           </button>
           <button onClick={this.handleResumeClick}>
-          Resume
+        Resume
           </button>
         </div>
       </div>
